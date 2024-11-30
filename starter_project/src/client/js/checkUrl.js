@@ -1,19 +1,9 @@
-function checkForName(inputText) {
-    console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ];
+const validUrl = require('valid-url');
 
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!");
-    }
-    else {
-        alert("Enter a valid captain name");
-    }
+function checkUrl(inputText) {
+  const isValid = Boolean(validUrl.isWebUri(`${inputText}`));
+  //console.log(isValid);
+  return isValid;
 }
 
-export { checkForName };
+export { checkUrl };

@@ -2,38 +2,62 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>Sentiment Analysis</title>
     </head>
 
     <body>
 
         <header>
             <div class="">
-                Logo
+                Home
             </div>
+            <h1 class="titleMain">Sentement Analysis</h1>
             <div class="">
-                navigation
+                ☺️☺️
             </div>
         </header>
 
         <main>
+
             <section>
-                <form id="urlForm">
-                    <input id="name" type="text" name="url" placeholder="Enter URL" required>
+                <form id="urlForm" method="post">
+                    <label for="url" >URL: <input id="url" type="text" name="url" placeholder="Enter Article URL Here" required></label>
                     <button id="submitButton" type="submit">Submit</button>
                 </form>
                 
             </section>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section class="errorD">
+                <p id="error">Belalal</p>
+            </section>
+
+            <section class="divRes">
+                <strong class="pRes">Form Results:</strong>
+                <div id="results">
+                    <p class="agreement"></p>
+                    <p class="subjectivity"></p>
+                    <p class="confidence"></p>
+                    <p class="irony"></p>
+                    <p class="score_tag"></p>
+                </div>
             </section>
         </main>
 
-        <footer>
-            <p>This is a footer</p>
+        <footer class="footer">
+            <p>@adamgaafar</p>
+            <p>@2024 </p>
+
         </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
 
     </body>
 </html>

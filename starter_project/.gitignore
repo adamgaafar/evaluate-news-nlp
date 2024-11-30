@@ -1,0 +1,8 @@
+### dotenv template
+.env
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+

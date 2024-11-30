@@ -1,14 +1,58 @@
+$headerColor:bisque;
+$fontLabel:18px;
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #fea77d;
 }
 
 main {
     flex: 2;
+
+
+    label {
+        font-size: $fontLabel;
+    }
+    .divRes {
+        background-color: $headerColor;
+        padding: 20px;
+        color: black;
+        font-size: 16px ;
+        display: flex; /* Make .divRes a flex container */
+        flex-direction: column; /* Stack children vertically */
+        justify-content: flex-start; /* Align items to the start of the .divRes */
+        align-items: center;
+        width: 90%;
+        border-radius: 10px;
+    }
+
+    .pRes{
+        align-self: flex-start; /* This works if the parent is a flex container */
+        margin: 0; /* Reset margin if necessary */
+    }
+
+    #results {
+        padding: 10px;
+    }
+
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
+}
+
+.errorD {
+    display: none;
+    background-color: brown;
+    padding: 20px;
+    color: #ffffff;
+    font-size: 16px ;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-start; /* Align items to the start of the .divRes */
+    align-items: center;
+    width: 90%;
+    border-radius: 10px;
 }

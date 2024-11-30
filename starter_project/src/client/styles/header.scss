@@ -1,5 +1,13 @@
+$headerColor:bisque;
 header {
+    background-color: $headerColor;
     display: flex;
     justify-content: space-between;
     padding: 10px 40px;
+    .titleMain {
+        font-size: 20px ;
+    }
+
+    border-bottom: #545454 solid 1px;
 }
+

@@ -1,13 +1,18 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/client/index.js',
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
     module: {
         rules: [
             {
@@ -17,8 +22,8 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-        }
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }
         ]
     },
     plugins: [
@@ -27,13 +32,13 @@ module.exports = {
             filename: "./index.html",
         }),
         new CleanWebpackPlugin({
-            // Simulate the removal of files
-            dry: true,
-            // Write Logs to Console
+            dry: false,
             verbose: true,
-            // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
-            protectWebpackAssets: false
+            protectWebpackAssets: false,
+        }),
+        new CopyWebpackPlugin({
+            patterns: [{ from: 'dist/service-worker.js', to: '' }]
         })
     ],
     devServer: {
